@@ -3,6 +3,7 @@ var wins = 0;
 var LettersGuessed = []; //array which will contain letters already guessed and use that to prevent repeated inputs
 var gamestate = false; //Using state-space methods, write events based on whether this is true or false
 var blank = '_';
+var winCount = document.getElementById("wins");
 var QuitButton = document.getElementById("quit");
 var StartState = document.getElementById("start");
 var BlankWord = document.getElementById("word");
@@ -87,6 +88,8 @@ document.onkeyup = function(event) {
             //In this next statement, we will check if the requirements to win have occurred
             if(Completed(answer, LettersGuessed)) {
                 alert("You're Winner!");
+                wins++;
+                winCount.textContent = "Wins: " + wins;
                 initialize();
             }
         }
